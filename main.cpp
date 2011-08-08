@@ -5,7 +5,11 @@
 
 #include "songsmodel.h"
 
-#define DB_FILE "tabs.db"
+#ifdef Q_WS_MAEMO_5
+  #define DB_FILE "/opt/chordie/data/tabs.db"
+#else
+  #define DB_FILE "tabs.db"
+#endif
 
 int main(int argc, char *argv[])
 {
