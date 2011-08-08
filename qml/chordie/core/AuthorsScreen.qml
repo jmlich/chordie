@@ -6,13 +6,6 @@ HildonWindow {
     height: parent.height
 
     signal selected(string author)
-/*
-    ListModel{
-        id: authorsModel
-        ListElement { author: "Horkýže slíže"}
-
-    }
-*/
 
     Component {
         id: authorsListDelegate
