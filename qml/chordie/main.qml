@@ -1,9 +1,8 @@
 import QtQuick 1.0
-// import QtWebKit 1.0
+import "hildon"
 import "core"
 
-//HildonWindow {
-Rectangle {
+HildonWindow {
 
     id: window
     width: 800
@@ -12,7 +11,7 @@ Rectangle {
 
     AuthorsScreen {
       id: authorsScreen
-      visible: true
+      visible: false // FIXME
       onSelected: {
           songsScreen.author = author
           authorsScreen.visible = false
@@ -46,6 +45,10 @@ Rectangle {
             contentScreen.visible = false
             songsScreen.visible = true
         }
+    }
+
+    HildonSearchBox {
+
     }
 
 

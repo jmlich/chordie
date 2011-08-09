@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         qDebug() << "cannot open database";
 
         QErrorMessage error;
-        error.showMessage("cannot open database"); // FIXME _tr_
+        error.showMessage(QErrorMessage::tr("cannot open database"));
         error.exec();
         qApp->quit();
     }

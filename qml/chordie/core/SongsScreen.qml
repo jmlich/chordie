@@ -46,7 +46,7 @@ HildonWindow {
 
         HildonButton {
             id:songsScreenBackBtn
-            text: "back"
+            text: qsTr("back")
             onClicked: {
                 back()
             }

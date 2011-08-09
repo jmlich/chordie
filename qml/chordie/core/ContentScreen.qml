@@ -29,7 +29,7 @@ HildonWindow {
         Row {
             id: contentScreenHeader
             HildonButton {
-                text: "back"
+                text: qsTr("back")
                 onClicked: {
                     back()
                 }
@@ -37,21 +37,21 @@ HildonWindow {
             }
 
 //            HildonButton {
-//                text: "+"
+//                text: qsTr("+")
 //                width: 64
 //                onClicked: {
 //                    contentScreenWebView.contentsScale = contentScreenWebView.contentsScale * 1.2;
 //                }
 //            }
 //            HildonButton {
-//                text: "-"
+//                text: qsTr("-")
 //                width: 64
 //                onClicked: {
 //                    contentScreenWebView.contentsScale = contentScreenWebView.contentsScale / 1.2;
 //                }
 //            }
 //            HildonButton {
-//                text: "autoscroll"
+//                text: qsTr("autoscroll")
 //                onClicked: {
 //                    scrolling = !scrolling
 //                }

@@ -35,7 +35,7 @@ QVariant SongsModel::data(const QModelIndex &index, int role) const {
     return QVariant();
 }
 
-int SongsModel::rowCount(const QModelIndex &parent) const{
+int SongsModel::rowCount(const QModelIndex &) const{
     return m_songs.count();
 }
 
