@@ -36,26 +36,26 @@ HildonWindow {
 
             }
 
-//            HildonButton {
-//                text: qsTr("+")
-//                width: 64
-//                onClicked: {
-//                    contentScreenWebView.contentsScale = contentScreenWebView.contentsScale * 1.2;
-//                }
-//            }
-//            HildonButton {
-//                text: qsTr("-")
-//                width: 64
-//                onClicked: {
-//                    contentScreenWebView.contentsScale = contentScreenWebView.contentsScale / 1.2;
-//                }
-//            }
-//            HildonButton {
-//                text: qsTr("autoscroll")
-//                onClicked: {
-//                    scrolling = !scrolling
-//                }
-//            }
+            HildonButton {
+                text: qsTr("+")
+                width: 64
+                onClicked: {
+                    contentScreenWebView.contentsScale = contentScreenWebView.contentsScale * 1.2;
+                }
+            }
+            HildonButton {
+                text: qsTr("-")
+                width: 64
+                onClicked: {
+                    contentScreenWebView.contentsScale = contentScreenWebView.contentsScale / 1.2;
+                }
+            }
+            HildonButton {
+                text: qsTr("autoscroll")
+                onClicked: {
+                    scrolling = !scrolling
+                }
+            }
 
 
         }

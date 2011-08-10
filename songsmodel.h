@@ -33,7 +33,8 @@ signals:
     void dataChanged();
 
 public slots:
-    void findByAuthor(QString _author);
+    void songsOfAuthor(QString _author);
+    void findAuthors(QString _f);
 
 
 };

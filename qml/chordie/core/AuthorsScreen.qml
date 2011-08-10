@@ -2,6 +2,7 @@ import QtQuick 1.0
 import "../hildon"
 
 HildonWindow {
+
     width: parent.width
     height: parent.height
 
@@ -28,7 +29,9 @@ HildonWindow {
         }
     }
 
+
     Flickable {
+
         anchors.fill: parent
         contentHeight: layoutAuthors.height
 
@@ -36,6 +39,36 @@ HildonWindow {
             id: layoutAuthors
             Repeater { model: authorsModel; delegate: authorsListDelegate; }
         }
+    }
+
+    Keys.onPressed: {
+        authorSearchBox.focusScope = true;
+        authorSearchBox.text = authorSearchBox.text + event.text
+//        console.log(event.key)
+    }
+    focus: visible && (authorSearchBox.text == "");
+
+    HildonSearchBox {
+        id: authorSearchBox
+
+        visible: (text != "")
+        anchors.bottom: parent.bottom
+        onTextChanged: {
+            authorsModel.findAuthors(text+"%")
+/*
+            if (text == "") {
+                parent.focus = parent.visible;
+            }
+            */
+
+        }
+
+
+        onReturnPressed: {
+            // selected( authorsModel.get(0))
+            console.log("onReturnPressed: " + text)
+        }
+
     }
 
 

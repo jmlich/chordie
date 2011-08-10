@@ -12,7 +12,7 @@ HildonWindow {
 
 
     onAuthorChanged: {
-        songsModel.findByAuthor(author)
+        songsModel.songsOfAuthor(author)
     }
 
     Component {

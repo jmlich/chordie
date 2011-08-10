@@ -11,7 +11,7 @@ HildonWindow {
 
     AuthorsScreen {
       id: authorsScreen
-      visible: false // FIXME
+      visible: true;
       onSelected: {
           songsScreen.author = author
           authorsScreen.visible = false
@@ -47,9 +47,6 @@ HildonWindow {
         }
     }
 
-    HildonSearchBox {
-
-    }
 
 
 }

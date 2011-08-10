@@ -54,7 +54,7 @@ void SongsModel::loadAuthors() {
 
 }
 
-void SongsModel::findByAuthor(QString _author) {
+void SongsModel::songsOfAuthor(QString _author) {
     m_songs.clear();
 
     QSqlQuery query;
@@ -71,3 +71,22 @@ void SongsModel::findByAuthor(QString _author) {
 
     reset();
 }
+
+void SongsModel::findAuthors(QString _s) {
+    m_songs.clear();
+
+    QSqlQuery query;  
+    query.prepare("SELECT author, count(*) as c FROM songs GROUP BY author HAVING author LIKE :author ORDER BY author ASC");
+    query.bindValue(":author",_s);
+    query.exec();
+    while (query.next()) {
+        QString title("");
+        QString author = query.value(0).toString();
+        QString text("");
+        int count = query.value(1).toInt();
+        m_songs.append(SongsItem(title, author, text, count));
+    }
+
+    reset();
+}
+
