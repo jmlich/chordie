@@ -42,9 +42,10 @@ HildonWindow {
     }
 
     Keys.onPressed: {
-        authorSearchBox.focusScope = true;
-        authorSearchBox.text = authorSearchBox.text + event.text
-//        console.log(event.key)
+        if (((event.key >= Qt.Key_A) &&  (event.key <= Qt.Key_Z)) || ((event.key >= Qt.Key_a) &&  (event.key <= Qt.Key_z))) {
+            authorSearchBox.focusScope = true;
+            authorSearchBox.text = authorSearchBox.text + event.text
+        }
     }
     focus: visible && (authorSearchBox.text == "");
 
