@@ -8,7 +8,6 @@ Page {
     property string author: "";
     property string song: "";
     property string content: "";
-    property bool scrolling: false;
     property alias scrollingInterval: timer.interval;
 
     signal back();
@@ -19,12 +18,11 @@ Page {
         id: timer;
         interval: 100; running: true; repeat: true
         onTriggered: {
-            if (scrolling) {
                 if (contentFlickable.contentY + contentFlickable.height > contentFlickable.contentHeight) {
-                    scrolling = false;
+                    running = false;
                 }
                 contentFlickable.contentY += 1;
-            }
+
         }
     }
 
@@ -36,7 +34,7 @@ Page {
             onClicked: {
                 contentFlickable.contentX = 0
                 contentFlickable.contentY = 0
-                scrolling = false;
+                timer.running = false;
                 speedMenu.close();
                 back();
             }
@@ -53,9 +51,9 @@ Page {
 
 
         ToolIcon { // automatic scrolling
-            iconId: scrolling ? "common-pause" : "common-play";
+            iconId: timer.running ? "common-pause" : "common-play";
             onClicked: {
-                scrolling = !scrolling;
+                timer.running = !timer.running;
             }
         }
         ToolIcon { // automatic scrolling interval
