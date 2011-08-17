@@ -1,10 +1,10 @@
 Source: chordie
 Section: user/other
 Priority: optional
-Maintainer: Jozef Mlich <xmlich02@stud.fit.vutbr.cz>
+Maintainer: Jozef Mlich <imlich@unknown>
 Build-Depends: debhelper (>= 5), libqt4-dev
 Standards-Version: 3.7.3
-Homepage: https://gitorious.org/chordie
+Homepage: <insert the upstream URL, if relevant>
 
 Package: chordie
 Architecture: any

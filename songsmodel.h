@@ -30,7 +30,6 @@ private:
     };
 
 signals:
-    void dataChanged();
 
 public slots:
     void songsOfAuthor(QString _author);
