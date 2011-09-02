@@ -7,9 +7,9 @@
 /*
 #if defined(Q_WS_MAEMO_5)
   #define DB_FILE "/opt/chordie/data/tabs.db"
-#elif defined(MEEGO_EDITION_HARMATTAN)
+#elif defined(Q_WS_MAEMO_6)
 */
-  #define DB_FILE "/opt/chordie/data/tabs.db" // FIXME!
+  #define DB_FILE "/opt/chordie/data/tabs.db"
 /*
 #else
   #define DB_FILE "tabs.db"
@@ -40,12 +40,12 @@ int main(int argc, char *argv[])
 
 
     QDeclarativeView view;
-    view.setSource(QUrl("qrc:/qml/main.qml"));
 
     QDeclarativeContext *ctxt = view.rootContext();
     ctxt->setContextProperty("authorsModel", &authorsModel);
     ctxt->setContextProperty("songsModel", &songsModel);
 
+    view.setSource(QUrl("qrc:/qml/main.qml"));
     view.showFullScreen();
     return app.exec();
 }
