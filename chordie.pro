@@ -1,9 +1,17 @@
+QT += sql
+
+!isEmpty(MEEGO_VERSION_MAJOR) {
+    DEFINES += MEEGO_EDITION_HARMATTAN
+}
+
 # Add more folders to ship with the application, here
+folder_01.source = qml/chordie
+folder_01.target = qml
+DEPLOYMENTFOLDERS = folder_01
 
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
-QT+= declarative sql
 symbian:TARGET.UID3 = 0xE25DB591
 
 # Smart Installer package's UID
@@ -21,40 +29,31 @@ symbian:TARGET.CAPABILITY += NetworkServices
 # CONFIG += mobility
 # MOBILITY +=
 
+# Add dependency to symbian components
+# CONFIG += qtquickcomponents
+
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     songsmodel.cpp \
     songsitem.cpp
 
+# Please do not modify the following two lines. Required for deployment.
+include(qmlapplicationviewer/qmlapplicationviewer.pri)
+qtcAddDeployment()
 
 OTHER_FILES += \
-    qml/core/AuthorsPage.qml \
-    qml/main.qml \
-    chordie.desktop \
-    chordie.svg \
-    chordie.png \
     qtc_packaging/debian_harmattan/rules \
     qtc_packaging/debian_harmattan/README \
     qtc_packaging/debian_harmattan/copyright \
     qtc_packaging/debian_harmattan/control \
     qtc_packaging/debian_harmattan/compat \
     qtc_packaging/debian_harmattan/changelog \
-    tabs.db \
-    qml/core/ContentPage.qml \
-    qml/core/SongsPage.qml \
-    qml/ChordieTheme.qml
-
-RESOURCES += \
-    res.qrc
-
-# Please do not modify the following two lines. Required for deployment.
-include(deployment.pri)
-qtcAddDeployment()
-
-# enable booster
-CONFIG += qdeclarative-boostable
-QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
-QMAKE_LFLAGS += -pie -rdynamic
+    qtc_packaging/debian_fremantle/rules \
+    qtc_packaging/debian_fremantle/README \
+    qtc_packaging/debian_fremantle/copyright \
+    qtc_packaging/debian_fremantle/control \
+    qtc_packaging/debian_fremantle/compat \
+    qtc_packaging/debian_fremantle/changelog
 
 HEADERS += \
     songsmodel.h \
@@ -63,3 +62,6 @@ HEADERS += \
 databasefile.files = tabs.db
 databasefile.path = /opt/chordie/data
 INSTALLS += databasefile
+
+
+

@@ -4,8 +4,8 @@ Version=1.0
 Type=Application
 Terminal=false
 Name=chordie
-Exec=invoker --single-instance --type=d /opt/chordie/bin/chordie
-Icon=/usr/share/icons/hicolor/scalable/apps/chordie.svg
+Exec=/opt/chordie/bin/chordie
+Icon=chordie64
 X-Window-Icon=
 X-HildonDesk-ShowInToolbar=true
 X-Osso-Type=application/x-executable

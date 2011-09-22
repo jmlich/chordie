@@ -1,21 +1,20 @@
-#include <QtGui>
+#include <QtGui/QApplication>
 #include <QtDeclarative>
 #include <QErrorMessage>
+#include "qmlapplicationviewer.h"
 
 #include "songsmodel.h"
 
-/*
 #if defined(Q_WS_MAEMO_5)
-  #define DB_FILE "/opt/chordie/data/tabs.db"
-#elif defined(Q_WS_MAEMO_6)
-*/
-  #define DB_FILE "/opt/chordie/data/tabs.db"
-/*
+#define DB_FILE "/opt/chordie/data/tabs.db"
+#define QML_FILE "qml/chordie/fremantle/main.qml"
+#elif defined(MEEGO_EDITION_HARMATTAN)
+#define DB_FILE "/opt/chordie/data/tabs.db"
+#define QML_FILE "qml/chordie/harmattan/main.qml"
 #else
-  #define DB_FILE "tabs.db"
+#define DB_FILE "tabs.db"
+#define QML_FILE "qml/chordie/fremantle/main.qml"
 #endif
-*/
-
 
 int main(int argc, char *argv[])
 {
@@ -39,13 +38,17 @@ int main(int argc, char *argv[])
     SongsModel songsModel;
 
 
-    QDeclarativeView view;
 
-    QDeclarativeContext *ctxt = view.rootContext();
+    QmlApplicationViewer viewer;
+
+    QDeclarativeContext *ctxt = viewer.rootContext();
     ctxt->setContextProperty("authorsModel", &authorsModel);
     ctxt->setContextProperty("songsModel", &songsModel);
 
-    view.setSource(QUrl("qrc:/qml/main.qml"));
-    view.showFullScreen();
+    viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
+    viewer.setMainQmlFile(QLatin1String(QML_FILE));
+
+    viewer.showExpanded();
+
     return app.exec();
 }
