@@ -1,12 +1,12 @@
 
 function themeFilename(name) {
-//    return "/etc/hildon/theme/images/" + name + ".png";
-    return "./images/" + name + ".png";
+    return "/etc/hildon/theme/images/" + name + ".png";
+//    return "./images/" + name + ".png";
 }
 
 function iconFilename(name) {
-//    return "/usr/share/icons/hicolor/48x48/hildon/" + name + ".png";
-    return "./icons/" + name + ".png";
+    return "/usr/share/icons/hicolor/48x48/hildon/" + name + ".png";
+//    return "./icons/" + name + ".png";
 }
 
 function themedButton(basename, sensitive, pressed) {
